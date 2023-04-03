@@ -1,0 +1,49 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: reggie
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://sh-cynosdbmysql-grp-b3df6uyk.sql.tencentcdb.com:27446/work?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: Ping192168.
+  redis:
+    host: 124.223.62.234
+    port: 6379
+    password: Ping192168.
+    database: 0
+  cache:
+    redis:
+      time-to-live: 6000000 #设置缓存数据的过期时间
+  #环境配置
+  profiles:
+    active: dev
+  freemarker:
+    check-template-location: false
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      database: test
+      host: localhost
+      port: 27017
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    #输出SQL日志
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #主键策略
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+    #MP控制台输出logo
+    banner: false
+reggie:
+  path: /root/project/reggie/pictures/
+  # path: C:/Users/ME/IdeaProjects/reggie/src/main/resources/pictures/
